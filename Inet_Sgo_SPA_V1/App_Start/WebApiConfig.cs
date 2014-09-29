@@ -25,6 +25,23 @@ namespace Inet_Sgo_SPA_V1
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            // configuracion para que me devuelva los resultados en formato json
+            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+
+            // rsanch: Remove default XML handler
+            var matches = config.Formatters
+                                .Where(f => f.SupportedMediaTypes
+                                             .Where(m => m.MediaType.ToString() == "application/xml" ||
+                                                         m.MediaType.ToString() == "text/xml")
+                                             .Count() > 0)
+                                .ToList();
+            foreach (var match in matches)
+                config.Formatters.Remove(match);
+            //rsanch Loop Reference handling. http://blogs.msdn.com/b/hongyes/archive/2012/09/04/loop-reference-handling-in-serializer.aspx
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Serialize;
+            //config.Formatters.JsonFormatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects; 
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Inet_Sgo_SPA_V1.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ApiController
     {
         // GET api/values
