@@ -1,0 +1,158 @@
+﻿<div class="text-center">
+    <!-- Administracion de Campos Programaticos-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    <h5>Administracion de Campos Programaticos</h5>
+                    <div class="toolbar">
+                        <div class="btn btn-sm btn-default minimize-box">
+                            <a ng-click="adminCamposCollapse = !adminCamposCollapse">
+                                <i class="fa fa-angle-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                </header>                
+                <div class="body" collapse="adminCamposCollapse">
+                    <!-- Area de ABM de Campos Programaticos-->
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="box dark">
+                                <div class="body">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Nombre</label>
+                                            <div class="col-lg-8">
+                                                <div ng-show="!editValue && !addValue">
+                                                    <input type="text" ng-model="infoCampoProg.Nombre" placeholder="Nombre" class="form-control" readonly>
+                                                </div>
+                                                <div ng-show="editValue || addValue">
+                                                    <input type="text" ng-model="infoCampoProg.Nombre" placeholder="Nombre" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Descripcion</label>
+                                            <div class="col-lg-8">
+                                                <div ng-show="!editValue && !addValue">
+                                                    <input type="text" ng-model="infoCampoProg.Descripcion" placeholder="Descripcion" class="form-control" readonly>
+                                                </div>
+                                                <div ng-show="editValue || addValue">
+                                                    <input type="text" ng-model="infoCampoProg.Descripcion" placeholder="Descripcion" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Tipo</label>
+                                            <div class="col-lg-8">
+                                                <div ng-show="!editValue && !addValue">                                                    
+                                                    <input type="text" ng-model="infoCampoProg.TipoCampoProgramatico.Descripcion" class="form-control" readonly>
+                                                </div>
+                                                <div ng-show="editValue || addValue">                                                    
+                                                    <ui-select ng-model="tipo.selected" theme="select2" on-select="mostrarTiposCamposJuris($item, $model)" style="min-width: 300px;">                                                        
+                                                        <ui-select-match placeholder="Seleccione el Tipo" >{{$select.selected.Descripcion}}</ui-select-match>
+                                                        <ui-select-choices repeat="tipoCampoProg in tiposCamposProg | propsFilter: {Descripcion: $select.search}">
+                                                            <small>
+                                                                Tipo: <span ng-bind-html="tipoCampoProg.Descripcion | highlight: $select.search"></span>
+                                                            </small>
+                                                        </ui-select-choices>
+                                                    </ui-select>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-show="showTipoCampoJuris">                                        
+                                            <label class="control-label col-lg-4">Tipo Campo Jurisdiccional</label>
+                                            <div class="col-lg-8">
+                                                <div ng-show="!editValue && !addValue">
+                                                    <input type="text" ng-model="infoCampoProg.TipoCampoJurisdiccional.DescripcionTipo" class="form-control" readonly>
+                                                </div>
+                                                <div ng-show="editValue || addValue">
+                                                    <ui-select ng-model="tipoJuris.selected" theme="select2" style="min-width: 300px;">
+                                                        <ui-select-match placeholder="Seleccione el Tipo">{{$select.selected.DescripcionTipo}}</ui-select-match>
+                                                        <ui-select-choices repeat="tipoCampoJuris in tiposCamposJuris | propsFilter: {DescripcionTipo: $select.search}">
+                                                            <small>
+                                                                Tipo: <span ng-bind-html="tipoCampoJuris.DescripcionTipo | highlight: $select.search"></span>
+                                                            </small>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div class="modal-footer">
+                                        <!-- botones para alta de encargado-->
+                                        <button class="btn btn-primary" ng-click="campoProgAdd(infoCampoProg)" ng-if="addValue">Agregar</button>
+                                        <button class="btn btn-warning" ng-click="clear()" ng-if="addValue">Limpiar</button>
+
+                                        <!-- botones para modificacion y eliminacion de encargado-->
+                                        <button class="btn btn-primary" ng-click="edit()" ng-if="!editValue && !addValue">Editar</button>
+                                        <button class="btn btn-primary" ng-click="save(infoCampoProg)" ng-if="editValue">Guardar</button>
+                                        <button class="btn btn-warning" ng-click="cancel()" ng-if="editValue">Cancelar</button>
+                                        <button class="btn btn-warning" ng-click="delete(infoCampoProg)" ng-if="!editValue && !addValue">Eliminar</button>
+                                        <button class="btn btn-warning" ng-click="clear()" ng-if="!editValue && !addValue">Limpiar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END - Area de ABM de Campos Programaticos-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END - Administracion de Campos Programaticos -->
+    <!-- Listado de Campos Programaticos-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-group"></i>
+                    </div>
+                    <h5>Campos Programaticos</h5>                    
+                </header>
+                <!--<div class="body" collapse="encargadosCollapse">-->
+                <div class="body">                    
+                    <!-- Area de la Tabla de Campos Programaticos-->                        
+                    <div class="row">                        
+                        <table ng-table class="table ng-table-responsive">
+                                <tr ng-repeat="campoProg in camposProg">
+                                    <td data-title="'Campo Programatico'">
+                                        {{campoProg.Nombre}}
+                                    </td>
+                                    <td data-title="'Tipo'">                                        
+                                        {{campoProg.TipoCampoProgramatico.Descripcion}}
+                                    </td>
+                                    <td data-title="'Descripcion'">
+                                        {{campoProg.Descripcion}}
+                                    </td>
+                                    <td>
+                                        <button ng-click="detalle(campoProg)" class="btn btn-info btn-line">Ver Detalles</button>
+                                    </td>
+                                    <td>                                        
+                                        <div ng-show="isInstitucional(campoProg.TipoCampoProgramatico.Descripcion)">
+                                            <a class="btn btn-info btn-line" ui-sref="camposProgLineasBase.lineasIntitucionales({campoProgId:campoProg.Id})">Ver Lineas de Accion</a>
+                                        </div>
+
+                                        <div ng-show="!isInstitucional(campoProg.TipoCampoProgramatico.Descripcion)">
+                                            <a class="btn btn-info btn-line" ui-sref="camposProgLineasBase.lineasJurisdiccionales({campoProgId:campoProg.Id})">Ver Lineas de Accion</a>
+                                        </div>                                        
+                                    </td>
+                                </tr>
+                            </table>                                                                      
+                    </div>
+                    <!-- END - Area de la Tabla de Encargados de la Escuela -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END - Listado de Campos Programaticos -->
+    
+</div>
+
+
+

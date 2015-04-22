@@ -1,0 +1,109 @@
+﻿<div class="text-center">
+    <!-- Administracion de Lineas de Accion-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    <h5>Administracion de Lineas de Accion</h5>
+                    <div class="toolbar">
+                        <div class="btn btn-sm btn-default minimize-box">
+                            <a ng-click="adminLineaCollapse = !adminLineaCollapse">
+                                <i class="fa fa-angle-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                </header>
+                <div class="body" collapse="adminLineaCollapse">                    
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="box dark">
+                                <div class="body">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Nombre</label>
+                                            <div class="col-lg-8">
+                                                <div ng-show="!editValue && !addValue">
+                                                    <input type="text" ng-model="infoLinea.Nombre" placeholder="Nombre" class="form-control" readonly>
+                                                </div>
+                                                <div ng-show="editValue || addValue">
+                                                    <input type="text" ng-model="infoLinea.Nombre" placeholder="Nombre" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4">Descripcion</label>
+                                            <div class="col-lg-8">
+                                                <div ng-show="!editValue && !addValue">
+                                                    <input type="text" ng-model="infoLinea.Descripcion" placeholder="Descripcion" class="form-control" readonly>
+                                                </div>
+                                                <div ng-show="editValue || addValue">
+                                                    <input type="text" ng-model="infoLinea.Descripcion" placeholder="Descripcion" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>                                        
+                                    </form>
+
+                                    <div class="modal-footer">
+                                        <!-- botones para alta de encargado-->
+                                        <button class="btn btn-primary" ng-click="lineaAdd(infoLinea)" ng-if="addValue">Agregar</button>
+                                        <button class="btn btn-warning" ng-click="clear()" ng-if="addValue">Limpiar</button>
+
+                                        <!-- botones para modificacion y eliminacion de encargado-->
+                                        <button class="btn btn-primary" ng-click="edit()" ng-if="!editValue && !addValue">Editar</button>
+                                        <button class="btn btn-primary" ng-click="save(infoLinea)" ng-if="editValue">Guardar</button>
+                                        <button class="btn btn-warning" ng-click="cancel()" ng-if="editValue">Cancelar</button>
+                                        <button class="btn btn-warning" ng-click="delete(infoLinea)" ng-if="!editValue && !addValue">Eliminar</button>
+                                        <button class="btn btn-warning" ng-click="clear()" ng-if="!editValue && !addValue">Limpiar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END - Area de ABM de Campos Programaticos-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END - Administracion de Lineas de Accion -->
+    <!-- Listado de Lineas de Accion-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-group"></i>
+                    </div>
+                    <h5>Lineas de Accion</h5>
+                </header>
+                <!--<div class="body" collapse="encargadosCollapse">-->
+                <div class="body">
+                    <!-- Area de la Tabla de Campos Programaticos-->
+                    <div class="row">
+                        <table ng-table class="table ng-table-responsive">
+                            <tr ng-repeat="linea in lineas">
+                                <td data-title="'Campo Programatico'">
+                                    {{linea.Nombre}}
+                                </td>                                
+                                <td data-title="'Descripcion'">
+                                    {{linea.Descripcion}}
+                                </td>
+                                <td>
+                                    <button ng-click="detalle(linea)" class="btn btn-info btn-line">Ver Detalles</button>
+                                </td>                                
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- END - Area de la Tabla de Encargados de la Escuela -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END - Listado de Lineas de Accion -->
+</div>
+
+
+
+

@@ -1,0 +1,38 @@
+﻿<div class="box">
+    <header>
+        <div class="icons">
+            <i class="fa fa-table"></i>
+        </div>
+        <h5>{{titulo}}</h5>
+        <div class="toolbar">
+            <div class="btn btn-sm btn-default minimize-box">
+                <a ng-click="listDictamenCollapse = !listDictamenCollapse">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="body" collapse="listDictamenCollapse">        
+        <loader></loader>
+        <table ng-table="tableParams" show-filter="true" class="table ng-table-responsive">
+            <tr ng-repeat="dictamen in dictamenes">
+                <td data-title="'Dictamen'" filter="{ 'NroDictamen': 'text' }">
+                    {{dictamen.NroDictamen}}
+                </td>                
+                <td data-title="'Cod. Plan de Mejora'" filter="{ 'CodPlanMejora': 'text' }">
+                    {{dictamen.CodPlanMejora}}
+                </td>
+                <td data-title="'Fecha'" sortable="'Fecha'">
+                    {{dictamen.Fecha}}
+                </td>
+                <td data-title="'MontoAprobado'" sortable="'MontoAprobado'">
+                    {{dictamen.MontoAprobado}}
+                </td>
+                <td>
+                    <a>Ver Detalle</a>
+                    <!--<a ui-sref="escuelasDetailBase.detail({escuelaId:escuela.Id})">Ver Detalles</a>-->
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+﻿<!--Seleccion de Escuela para el Dictamen-->
+<div class="row">
+    <div class="form-group">
+        <div class="col-lg-6">
+            <label class="control-label col-lg-3">Seleccion de Escuela</label>
+            <label class="control-label col-lg-1">&nbsp;</label>
+            <div class="input-group col-lg-6">
+                <ui-select ng-model="escuelaBuscada.selected" theme="select2" style="min-width: 300px;">
+                    <ui-select-match placeholder="Busque por CUE o Nombre">{{$select.selected.CUE}}</ui-select-match>
+                    <ui-select-choices repeat="escuela in escuelas | propsFilter: {CUE: $select.search, Nombre: $select.search}">
+                        <small>
+                            CUE: <span ng-bind-html="escuela.CUE | highlight: $select.search"></span>
+                            Nombre: <span ng-bind-html="escuela.Nombre | highlight: $select.search"></span>
+                        </small>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <label class="control-label col-lg-2">Nombre</label>
+            <div class="input-group col-lg-10">
+                <input ng-model="escuelaBuscada.selected.Nombre" class="form-control" type="text">
+            </div>
+        </div>
+    </div>
+</div>
+<!--END - Seleccion de Escuela para el Dictamen-->
+<!-- Carga de Administradores de la Escuela-->
+<div class="row">
+    <div class="panel panel-info text-left">
+        <div class="panel-heading">
+            <h3 class="panel-title">Carga de Administradores de la Escuela</h3>
+        </div>
+        <div class="panel-body">
+            <!-- Seleccion Administrador-->
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-6">
+                        <label class="control-label col-lg-3">Administrador de Red</label>
+                        <label class="control-label col-lg-1">&nbsp;</label>
+                        <div class="col-lg-8">
+                            <ui-select ng-model="adminBuscado.selected" theme="select2" style="min-width: 300px;">
+                                <ui-select-match placeholder="Busque por Nombre">{{$select.selected.Nombre}}</ui-select-match>
+                                <ui-select-choices repeat="administrador in administradores | propsFilter: {Nombre: $select.search}">
+                                    <small>
+                                        Nombre: <span ng-bind-html="administrador.Nombre | highlight: $select.search"></span>
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label class="control-label col-lg-1">Turno</label>
+                        <div class="col-lg-11">
+                            <ui-select ng-model="turnoBuscado.selected" theme="select2" style="min-width: 300px;">
+                                <ui-select-match placeholder="">{{$select.selected.turnoTrabajado}}</ui-select-match>
+                                <ui-select-choices repeat="turno in turnos">
+                                    <small>
+                                        Turno: <span ng-bind-html="turno.turnoTrabajado | highlight: $select.search"></span>
+                                    </small>
+                                </ui-select-choices>
+                            </ui-select>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End - Seleccion Administrador-->
+            
+            <div class="row">
+                <!-- Carga Contrato del Administrador-->
+                <div class="form-group form-inline">
+                    <div class="col-lg-2">
+                        <label class="control-label col-lg-5">Monto Mensual</label>
+                        <div class="input-group col-lg-7">
+                            <input class="form-control" type="text" ng-model="contratoAdministrador.MontoMensual">
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="control-label col-lg-5">Horas Mensuales</label>
+                        <div class="input-group col-lg-7">
+                            <input type="text" class="form-control" ng-model="contratoAdministrador.HorasMes" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-5">Fecha de Inicio</label>
+                        <div class="input-group col-lg-7">
+                            <input class="form-control" type="date" ng-model="contratoAdministrador.FechaInicio">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label col-lg-5">Fecha de Fin</label>
+                        <div class="input-group col-lg-7">
+                            <input class="form-control" type="date" ng-model="contratoAdministrador.FechaFin" />
+                        </div>
+                    </div>                    
+                </div>
+                <div>
+                    <div class="col-lg-8"></div>
+                    <div class="col-lg-4">
+                        <button class="btn btn-success" ng-click="addAdmin()">Agregar Administrador</button>
+                    </div>
+                </div>
+                <!-- End - Carga Contrato del Administrador-->
+                
+                <!-- Tabla de Administradores Agregados por Escuela-->
+                <div class="form-group">
+                    <div class="col-lg-7">
+                        <table ng-table="tableParams" class="table ng-table-responsive">
+                            <tr ng-repeat="servicio in detalleAdminRed.Servicios">
+                                <td data-title="'Administrador'">
+                                    {{servicio.AdministradorDeRed.Nombre}}
+                                </td>
+                                <td data-title="'Turno'">
+                                    {{servicio.Turno}}
+                                </td>
+                                <td data-title="'Fecha Inicio'">
+                                    {{servicio.FechaInicio}}
+                                </td>
+                                <td data-title="'Fecha Fin'">
+                                    {{servicio.FechaFin}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                    
+                </div>
+                <!-- END -  Tabla de Administradores Agregados por Escuela -->
+            </div>            
+        </div>
+    </div>
+</div>
+<!-- END - Carga de Administradores de la Escuela-->
+<button class="btn btn-primary" ng-click="detalleAdd()">Cargar Detalles</button>

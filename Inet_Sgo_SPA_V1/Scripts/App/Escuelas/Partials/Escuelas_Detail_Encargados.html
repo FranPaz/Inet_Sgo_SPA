@@ -1,0 +1,126 @@
+﻿<header>
+    <div class="icons">
+        <i class="fa fa-group"></i>
+    </div>
+    <h5>Encargados</h5>
+    <div class="toolbar">
+        <div class="btn btn-sm btn-default minimize-box">
+            <a ng-click="encargadosCollapse = !encargadosCollapse">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </div>
+</header>
+<div class="body" collapse="encargadosCollapse">
+    <div class="row">
+        <!-- Area de la Tabla de Encargados de la Escuela-->
+        <div class="col-lg-7">
+            <table ng-table class="table ng-table-responsive">
+                <tr ng-repeat="encargado in encargados">
+                    <td data-title="'Encargado'">
+                        {{encargado.Nombre}}
+                    </td>
+                    <td data-title="'Cargo'">
+                        {{encargado.TipoCargoEncargado.Descripcion}}
+                    </td>
+                    <td>
+                        <button ng-click="detalle(encargado)" class="btn btn-info btn-line">Ver detalles</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- END - Area de la Tabla de Encargados de la Escuela -->
+        <!-- Area de ABM de Encargados-->
+        <div class="col-lg-5">
+            <div class="box dark">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    <h5>Administracion de Encargados</h5>
+                </header>
+                <div class="body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">Nombre</label>
+                            <div class="col-lg-8">
+                                <div ng-show="!editValue && !addValue">
+                                    <input type="text" ng-model="infoEncargado.Nombre" placeholder="Nombre" class="form-control" readonly>
+                                </div>
+                                <div ng-show="editValue || addValue">
+                                    <input type="text" ng-model="infoEncargado.Nombre" placeholder="Nombre" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">Apellido</label>
+                            <div class="col-lg-8">
+                                <div ng-show="!editValue && !addValue">
+                                    <input type="text" ng-model="infoEncargado.Apellido" placeholder="Apellido" class="form-control" readonly>
+                                </div>
+                                <div ng-show="editValue || addValue">
+                                    <input type="text" ng-model="infoEncargado.Apellido" placeholder="Apellido" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">DNI</label>
+                            <div class="col-lg-8">
+                                <input type="text" ng-model="infoEncargado.DNI" placeholder="DNI" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">CUIT</label>
+                            <div class="col-lg-8">
+                                <input type="text" ng-model="infoEncargado.CUIT" placeholder="CUIT" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">Telefono</label>
+                            <div class="col-lg-8">
+                                <input type="text" ng-model="infoEncargado.Telefono" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">Email</label>
+                            <div class="col-lg-8">
+                                <input type="text" ng-model="infoEncargado.Email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">Tipo de Cargo</label>
+                            <div class="col-lg-8">
+                                <div>
+                                    <ui-select ng-model="tipoCargo.selected" theme="select2" style="min-width: 250px;">
+                                        <ui-select-match placeholder="Seleccione el Cargo">{{$select.selected.Descripcion}}</ui-select-match>
+                                        <ui-select-choices repeat="cargo in tiposCargos | propsFilter: {Descripcion: $select.search}">
+                                            <small>
+                                                Cargo: <span ng-bind-html="cargo.Descripcion | highlight: $select.search"></span>
+                                            </small>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="modal-footer">
+                        <!-- botones para alta de encargado-->
+                        <button class="btn btn-primary" ng-click="encargadoAdd(infoEncargado)" ng-if="addValue">Agregar</button>
+                        <button class="btn btn-warning" ng-click="clear()" ng-if="addValue">Limpiar</button>
+
+                        <!-- botones para modificacion y eliminacion de encargado-->
+                        <button class="btn btn-primary" ng-click="edit()" ng-if="!editValue && !addValue">Editar</button>
+                        <button class="btn btn-primary" ng-click="save(infoEncargado)" ng-if="editValue">Guardar</button>
+                        <button class="btn btn-warning" ng-click="cancel()" ng-if="editValue">Cancelar</button>
+                        <button class="btn btn-warning" ng-click="delete(infoEncargado)" ng-if="!editValue && !addValue">Eliminar</button>
+                        <button class="btn btn-warning" ng-click="clear()" ng-if="!editValue && !addValue">Limpiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Area de ABM de Encargados-->
+    </div>
+
+</div>
+

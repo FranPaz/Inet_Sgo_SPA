@@ -8,9 +8,11 @@
     <!--Mobile first-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+    @*<link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.min.css">
+    @*<link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.min.css">*@
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     <!-- Metis core stylesheet -->
     <link rel="stylesheet" href="assets/css/main.min.css">
     <!-- Metis Theme stylesheet -->
@@ -33,7 +35,7 @@
     <script src="assets/lib/less/less-1.7.3.min.js"></script>
     <!--Modernizr 2.8.2-->
     <script src="assets/lib/modernizr/modernizr.min.js"></script>
-
+    
     <!-- Angularjs -->
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-route.min.js"></script>
@@ -56,15 +58,141 @@
     <script src="~/Scripts/App/inetApp.js"></script>
     <!-- end -->   
 
-    <!-- Loading Bar -->
-    @*<script src="~/Scripts/loading-bar.js"></script>
-    <link href="~/Content/loading-bar.css" rel="stylesheet" />*@
+    <!-- Tipos de Comprobantes -->
+    <script src="~/Scripts/App/Comprobantes/comprobantesCtrl.js"></script>
+    <script src="~/Scripts/App/Comprobantes/comprobantesDataFactory.js"></script>
     <!-- end -->   
+
+    <!-- ngTable -->
+    <link href="~/Scripts/ngTable/ng-table.css" rel="stylesheet" />
+    <script src="~/Scripts/ngTable/ng-table.js"></script>
+    <!-- end -->   
+
+    <!-- UI- Select -->
+    <link href="~/Scripts/angular-ui-select/select.css" rel="stylesheet" />
+    <script src="~/Scripts/angular-ui-select/select.js"></script>
+    <script src="~/Scripts/angular-ui-select/basicSearchFilter.js"></script>
+    <link href="~/Scripts/angular-ui-select/select2-bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/angular-ui-select/select2.css" rel="stylesheet" />
+
+    <!-- end -->   
+
+    <!-- ng Google Chart-->
+    <script src="~/Scripts/ng-google-chart/ng-google-chart.js"></script>
+    <!-- end -->
+
+    <!-- Angular UI-Router-Extras-->
+    <script src="~/Scripts/angular-ui-router-extras/ct-ui-router-extras.js"></script>
+    <!-- end -->
+
+    <!-- Escuelas -->
+    <script src="~/Scripts/App/Escuelas/escuelasCtrl.js"></script>
+    <script src="~/Scripts/App/Escuelas/escuelasDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Encargados -->
+    <script src="~/Scripts/App/Encargados/encargadosCtrl.js"></script>
+    <script src="~/Scripts/App/Encargados/encargadosDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Tipos de Cargos de Encargados -->
+    <script src="~/Scripts/App/Encargados/tipoCargosEncargadosDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Tipos Detalles Jurisdiccionales-->
+    <script src="~/Scripts/App/TiposDetallesJuris/tiposDetallesJurisDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Dictamenes-->
+    <script src="~/Scripts/App/Dictamenes/dictamenCtrl.js"></script>
+    <script src="~/Scripts/App/Dictamenes/dictamenSvc.js"></script>
+    <!-- end -->
+        
+    <!-- Dictamenes Institucionales-->
+    <script src="~/Scripts/App/Dict_Institucionales/dictInstCtrl.js"></script>
+    <script src="~/Scripts/App/Dict_Institucionales/dictInstDataFactory.js"></script>
+    <script src="~/Scripts/App/Dict_Institucionales/dictInstSvc.js"></script>    
+    <!-- end -->
+
+    <!--Dictamenes Jurisdiccionales-->
+    <script src="~/Scripts/App/Dict_Jurisdiccionales/dictJurisCtrl.js"></script>
+    <script src="~/Scripts/App/Dict_Jurisdiccionales/dictJurisDataFactory.js"></script>
+    <script src="~/Scripts/App/Dict_Jurisdiccionales/dictJurisSvc.js"></script>
+    <!-- end -->
+
+    <!-- Detalles Lineas Jurisdiccionales-->
+    <script src="~/Scripts/App/DetallesLineasJuris/detallesLineaJurisCtrl.js"></script>
+    <link href="~/Scripts/App/DetallesLineasJuris/modal-content-custom.css" rel="stylesheet" />
+    <script src="~/Scripts/App/DetallesLineasJuris/detalleLineaJurisSvc.js"></script>
+    <script src="~/Scripts/App/DictJuris_RedesPiso/dictRedesPisoInetDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Campos Programaticos-->
+    <script src="~/Scripts/App/CamposProgramaticos/camposProgCtrl.js"></script>
+    <script src="~/Scripts/App/CamposProgramaticos/camposProgDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Tipos Campos Programaticos-->
+    <script src="~/Scripts/App/TiposCamposProg/tiposCamposProgCtrl.js"></script>
+    <script src="~/Scripts/App/TiposCamposProg/tiposCamposProgDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Tipos Campos Programaticos Jurisdiccionales-->
+    <script src="~/Scripts/App/TiposCamposJuris/tiposCamposJurisDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Tipos de Lineas de Accion de los Campos Programaticos-->
+    <script src="~/Scripts/App/TiposLineasDeAccion/tlInstCtrl.js"></script>
+    <script src="~/Scripts/App/TiposLineasDeAccion/tlInstDataFactory.js"></script>
+    <script src="~/Scripts/App/TiposLineasDeAccion/tlJurisdicCtrl.js"></script>
+    <script src="~/Scripts/App/TiposLineasDeAccion/tlJurisdicDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- interceptor-->
+    <link href="~/Scripts/App/interceptor/interceptorCss.css" rel="stylesheet" />
+    <script src="~/Scripts/App/interceptor/interceptorDirective.js"></script>
+    <script src="~/Scripts/App/interceptor/interceptorFactory.js"></script>
+    <!-- end -->
+
+    <!-- Administradores de Redes y Piso Tec - Servicios de Administradores de Red -->
+    <script src="~/Scripts/App/DictJuris_RedesPiso/Serv_Admin/servAdminRedCtrl.js"></script>
+    <!-- end -->
+
+    <!-- Administradores de Redes y Piso Tec - Servicios de Internet -->
+    <script src="~/Scripts/App/DictJuris_RedesPiso/Serv_Internet/servInternetCtrl.js"></script>
+    <!-- end -->
+
+    <!-- Administradores de Redes y Piso Tec - Servicios de Instalacion de Redes y Piso Tecnologico -->
+    <script src="~/Scripts/App/DictJuris_RedesPiso/Serv_Instalacion/servIntalacionCtrl.js"></script>
+    <!-- end -->
+
+    <!-- Administradores de Redes-->
+    <script src="~/Scripts/App/AdministradoresRed/adminRedDataFactory.js"></script>
+    <!-- end -->
+
+    <!-- Instaladores de Redes y Piso Tecnologico-->
+    <script src="~/Scripts/App/InstaladoresRedPiso/instaladoresRedDataFactory.js"></script>
+    <!-- end -->
+
+    <!--
+    Select2 theme
+    Bootstrap 3 theme from https://github.com/fk/select2-bootstrap-css
+    -->    
+    <style>        
+        .select2 > .select2-choice.ui-select-match {
+            /* Because of the inclusion of Bootstrap */
+            height: 29px;
+        }
+
+        .selectize-control > .selectize-dropdown {
+            top: 36px;
+        }
+    </style>
     
 </head>
-<body ng-app="inetApp">
+<body ng-app="inetApp" class="  ">
     <div class="bg-dark dk" id="wrap">
-        <!-- fpaz: Header -->        
+        <!-- fpaz: Header -->
         <div id="top">
             <!-- .navbar -->
             <nav class="navbar navbar-inverse navbar-static-top">
@@ -77,8 +205,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="index.html" class="navbar-brand">
-                            <img src="~/img/logo_educacion.jpg" />
+                        <a href="#" class="navbar-brand">
+                            <img src="/img/logo_educacion.jpg" class="img-responsive" width="40%">
                         </a>
                     </header>
                     <div class="topnav">
@@ -116,25 +244,25 @@
                         <!-- .nav -->
                         <ul class="nav navbar-nav">
                             @*<li> <a href="dashboard.html">Dashboard</a>  </li>
-                            <li> <a href="table.html">Tables</a>  </li>
-                            <li> <a href="file.html">File Manager</a>  </li>
-                            <li class='dropdown '>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    Form Elements
-                                    <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li> <a href="form-general.html">General</a>  </li>
-                                    <li> <a href="form-validation.html">Validation</a>  </li>
-                                    <li> <a href="form-wysiwyg.html">WYSIWYG</a>  </li>
-                                    <li> <a href="form-wizard.html">Wizard &amp; File Upload</a>  </li>
-                                </ul>
-                            </li>*@
+                                <li> <a href="table.html">Tables</a>  </li>
+                                <li> <a href="file.html">File Manager</a>  </li>
+                                <li class='dropdown '>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        Form Elements
+                                        <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li> <a href="form-general.html">General</a>  </li>
+                                        <li> <a href="form-validation.html">Validation</a>  </li>
+                                        <li> <a href="form-wysiwyg.html">WYSIWYG</a>  </li>
+                                        <li> <a href="form-wizard.html">Wizard &amp; File Upload</a>  </li>
+                                    </ul>
+                                </li>*@
                         </ul><!-- /.nav -->
                     </div>
                 </div><!-- /.container-fluid -->
             </nav><!-- /.navbar -->
-            <header class="head">                
+            <header class="head">
                 <div class="main-bar">
                     <h3>
                         <i class="fa fa-home"></i>&nbsp; Metis
@@ -171,288 +299,176 @@
             </div>
             <!-- #menu -->
             <ul id="menu" class="bg-blue dker">
+                <li class="nav-divider"></li>
                 <li class="nav-header">Menu</li>
                 <li class="nav-divider"></li>
                 <li class="">
-                    <a href="dashboard.html">
-                        <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
+                    <a ui-sref="escuelas">
+                        <i class="fa fa-institution"></i><span class="link-title">&nbsp;Escuelas</span>
                     </a>
                 </li>
                 <li class="">
                     <a href="javascript:;">
-                        <i class="fa fa-building "></i>
-                        <span class="link-title">Layouts</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="boxed.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-header-boxed.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout &amp; Fixed Header
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-header-fixed-mini-sidebar.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Fixed Header and Fixed Mini Menu
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-header-menu.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Fixed Header &amp; Menu
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-header-mini-sidebar.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Fixed Header &amp; Mini Menu
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-header.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Fixed Header
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-menu-boxed.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Boxed Layout &amp; Fixed Menu
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-menu.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Fixed Menu
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fixed-mini-sidebar.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Fixed &amp; Mini Menu
-                            </a>
-                        </li>
-                        <li>
-                            <a href="fxhmoxed.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Boxed and Fixed Header &amp; Nav
-                            </a>
-                        </li>
-                        <li>
-                            <a href="no-header-sidebar.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; No Header &amp; Sidebars
-                            </a>
-                        </li>
-                        <li>
-                            <a href="no-header.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; No Header
-                            </a>
-                        </li>
-                        <li>
-                            <a href="no-left-right-sidebar.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; No Left &amp; Right Sidebar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="no-left-sidebar-main-search.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; No Left Sidebar &amp; Main Search
-                            </a>
-                        </li>
-                        <li>
-                            <a href="no-left-sidebar.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; No Left Sidebar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="no-main-search.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; No Main Search
-                            </a>
-                        </li>
-                        <li>
-                            <a href="no-right-sidebar.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; No Right Sidebar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sm.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Mini Sidebar
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="fa fa-tasks"></i>
-                        <span class="link-title">Components</span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="bgcolor.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Bg Color
-                            </a>
-                        </li>
-                        <li>
-                            <a href="bgimage.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Bg Image
-                            </a>
-                        </li>
-                        <li>
-                            <a href="button.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Buttons
-                            </a>
-                        </li>
-                        <li>
-                            <a href="icon.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Icon
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pricing.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Pricing Table
-                            </a>
-                        </li>
-                        <li>
-                            <a href="progress.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Progress
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="javascript:;">
-                        <i class="fa fa-pencil"></i>
+                        <i class="fa fa-clipboard"></i>
                         <span class="link-title">
-                            Forms
+                            Dictamenes
                         </span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul>
                         <li>
-                            <a href="form-general.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Form General
+                            <a ui-sref="dictamenesBase.Institucional">
+                                <i class="fa fa-angle-right"></i>&nbsp; Institucionales
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="dictamenesBase.Jurisdiccional">
+                                <i class="fa fa-angle-right"></i>&nbsp; Jurisdiccionales
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-file-text"></i>
+                        <span class="link-title">
+                            Resoluciones
+                        </span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-angle-right"></i>&nbsp; Resoluciones Inet
                             </a>
                         </li>
                         <li>
                             <a href="form-validation.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Form Validation
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form-wizard.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Form Wizard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="form-wysiwyg.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Form WYSIWYG
+                                <i class="fa fa-angle-right"></i>&nbsp; Resoluciones Ministeriales
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="table.html">
-                        <i class="fa fa-table"></i>
-                        <span class="link-title">Tables</span>
+                <li class="nav-divider"></li>
+                <li class="">
+                    <a ui-sref="#">
+                        <i class="fa fa-graduation-cap"></i><span class="link-title">&nbsp; Profesorado ETP</span>
                     </a>
                 </li>
-                <li>
-                    <a href="file.html">
-                        <i class="fa fa-file"></i>
-                        <span class="link-title">
-                            File Manager
-                        </span>
+                <li class="">
+                    <a ui-sref="#">
+                        <i class="fa fa-sitemap"></i><span class="link-title">&nbsp; Administradores de Redes</span>
                     </a>
                 </li>
-                <li>
-                    <a href="typography.html">
-                        <i class="fa fa-font"></i>
-                        <span class="link-title">
-                            Typography
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="maps.html">
-                        <i class="fa fa-map-marker"></i><span class="link-title">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="chart.html">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="link-title">
-                            Charts
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="calendar.html">
-                        <i class="fa fa-calendar"></i>
-                        <span class="link-title">
-                            Calendar
-                        </span>
-                    </a>
-                </li>
-                <li>
+                <li class="nav-divider"></li>
+                <li class="">
                     <a href="javascript:;">
-                        <i class="fa fa-exclamation-triangle"></i>
+                        <i class="fa fa-copy"></i>
                         <span class="link-title">
-                            Error Pages
+                            Rendiciones
                         </span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul>
                         <li>
-                            <a href="403.html">
-                                <i class="fa fa-angle-right"></i>&nbsp;403
+                            <a href="#">
+                                <i class="fa fa-angle-right"></i>&nbsp; Rendiciones Institucionales
                             </a>
                         </li>
                         <li>
-                            <a href="404.html">
-                                <i class="fa fa-angle-right"></i>&nbsp;404
-                            </a>
-                        </li>
-                        <li>
-                            <a href="405.html">
-                                <i class="fa fa-angle-right"></i>&nbsp;405
-                            </a>
-                        </li>
-                        <li>
-                            <a href="500.html">
-                                <i class="fa fa-angle-right"></i>&nbsp;500
-                            </a>
-                        </li>
-                        <li>
-                            <a href="503.html">
-                                <i class="fa fa-angle-right"></i>&nbsp;503
-                            </a>
-                        </li>
-                        <li>
-                            <a href="offline.html">
-                                <i class="fa fa-angle-right"></i>&nbsp;offline
-                            </a>
-                        </li>
-                        <li>
-                            <a href="countdown.html">
-                                <i class="fa fa-angle-right"></i>&nbsp;Under Construction
+                            <a href="form-validation.html">
+                                <i class="fa fa-angle-right"></i>&nbsp; Rendiciones Jurisdiccionales
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="grid.html">
-                        <i class="fa fa-columns"></i>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-dollar"></i>
                         <span class="link-title">
-                            Grid
+                            Transferencias
                         </span>
+                        <span class="fa arrow"></span>
                     </a>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-angle-right"></i>&nbsp; Transferencias Institucionales
+                            </a>
+                        </li>
+                        <li>
+                            <a href="form-validation.html">
+                                <i class="fa fa-angle-right"></i>&nbsp; Transferencias Jurisdiccionales
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="blank.html">
-                        <i class="fa fa-square-o"></i>
+
+                <li class="nav-divider"></li>
+                <li class="">
+                    <a href="javascript:;">
+                        <i class="fa fa-wrench"></i>
                         <span class="link-title">
-                            Blank Page
+                            Configuraciones
                         </span>
+                        <span class="fa arrow"></span>
                     </a>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-angle-right"></i>&nbsp; Planes de Mejora
+                            </a>
+                            <ul>
+                                <li>
+                                    <a ui-sref="camposProg">
+                                        <i class="fa fa-angle-right"></i>&nbsp; Campos Programaticos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-right"></i>&nbsp; Lineas de Accion Institucionales
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">
+                                        <i class="fa fa-angle-right"></i>&nbsp; Lineas de Accion Jurisdiccionales
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-angle-right"></i>&nbsp; Profesorado ETP
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-right"></i>&nbsp; Modulos Dictados
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-angle-right"></i>&nbsp; Profesores
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">
+                                        <i class="fa fa-angle-right"></i>&nbsp; Zonas Estimulo
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="form-validation.html">
+                                <i class="fa fa-angle-right"></i>&nbsp; Prestadores de Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="form-validation.html">
+                                <i class="fa fa-angle-right"></i>&nbsp; Tipos de Comprobantes
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-divider"></li>
                 <li>
@@ -463,57 +479,9 @@
                         </span>
                     </a>
                 </li>
-                <li>
-                    <a href="javascript:;">
-                        <i class="fa fa-code"></i>
-                        <span class="link-title">
-                            Unlimited Level Menu
-                        </span>
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="javascript:;">Level 1  <span class="fa arrow"></span>  </a>
-                            <ul>
-                                <li> <a href="javascript:;">Level 2</a>  </li>
-                                <li> <a href="javascript:;">Level 2</a>  </li>
-                                <li>
-                                    <a href="javascript:;">Level 2  <span class="fa arrow"></span>  </a>
-                                    <ul>
-                                        <li> <a href="javascript:;">Level 3</a>  </li>
-                                        <li> <a href="javascript:;">Level 3</a>  </li>
-                                        <li>
-                                            <a href="javascript:;">Level 3  <span class="fa arrow"></span>  </a>
-                                            <ul>
-                                                <li> <a href="javascript:;">Level 4</a>  </li>
-                                                <li> <a href="javascript:;">Level 4</a>  </li>
-                                                <li>
-                                                    <a href="javascript:;">Level 4  <span class="fa arrow"></span>  </a>
-                                                    <ul>
-                                                        <li> <a href="javascript:;">Level 5</a>  </li>
-                                                        <li> <a href="javascript:;">Level 5</a>  </li>
-                                                        <li> <a href="javascript:;">Level 5</a>  </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li> <a href="javascript:;">Level 4</a>  </li>
-                                    </ul>
-                                </li>
-                                <li> <a href="javascript:;">Level 2</a>  </li>
-                            </ul>
-                        </li>
-                        <li> <a href="javascript:;">Level 1</a>  </li>
-                        <li>
-                            <a href="javascript:;">Level 1  <span class="fa arrow"></span>  </a>
-                            <ul>
-                                <li> <a href="javascript:;">Level 2</a>  </li>
-                                <li> <a href="javascript:;">Level 2</a>  </li>
-                                <li> <a href="javascript:;">Level 2</a>  </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                <li class="nav-divider"></li>
+                
+
             </ul><!-- /#menu -->
         </div>
         <!-- fpaz: End Menu Left-->
@@ -533,15 +501,18 @@
     </footer>
     <!-- /#footer -->
     <!--jQuery 2.1.1 -->
-    <script src="assets/lib/jquery/jquery.min.js"></script>
+    @*<script src="assets/lib/jquery/jquery.min.js"></script>*@
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
     <!--Bootstrap -->
-    <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    @*<script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
     <!-- Screenfull -->
     <script src="assets/lib/screenfull/screenfull.js"></script>
     <!-- Metis core scripts -->
     <script src="assets/js/core.js"></script>
     <!-- Metis demo scripts -->
     <script src="assets/js/app.min.js"></script>
-    <script src="assets/js/style-switcher.js"></script>
+    @*<script src="assets/js/style-switcher.js"></script>*@
 </body>
 </html>

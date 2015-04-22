@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Inet_Sgo_SPA_V1.Models
 {
+    // En el modelo se va a usar Table per Type (TPT) para la herencia de clases de BD
     public class Escuela
     {
+        public Escuela() { } // constructor para relacion M a M con DictamenJurisdiccional
         public int Id { get; set; }
         [Required]
         public string CUE { get; set; }
@@ -19,21 +22,13 @@ namespace Inet_Sgo_SPA_V1.Models
         public string Email { get; set; }
         public DateTime FechaAlta { get; set; }        
         public virtual ICollection<Encargado> Encargados { get; set; } // 1 a M con encargados (muchos)
-        public ICollection<DictamenInstitucional> DictamenesInstitucionales { get; set; } // 1 a M con DictamenInstitucional (muchos)
+        public virtual ICollection<DictamenInstitucional> DictamenesInstitucionales { get; set; } // 1 a M con DictamenInstitucional (muchos)                
+        public virtual ICollection<DetalleLineaJuridisccional> DetallesLineasJuridisccional { get; set; } // 1 a M con DetalleLineaJuridisccional (muchos)
     }
 
-    public class Encargado
-    {
-        public int Id { get; set; }
-        [Required]
-        public string Nombre { get; set; }
-        [Required]
-        public string Apellido { get; set; }
-        [Required]
-        public string DNI { get; set; }
-        public string Telefono { get; set; }
-        public string Email { get; set; }
-        public DateTime FechaAlta { get; set; }
+    [Table("Encargados")]
+    public class Encargado:Persona
+    {        
         // 1 a M con Escuelas (uno)
         public int EscuelaId { get; set; }
         public virtual Escuela Escuela { get; set; }
@@ -44,7 +39,7 @@ namespace Inet_Sgo_SPA_V1.Models
 
     }
 
-    class TipoCargoEncargado
+    public class TipoCargoEncargado
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }

@@ -1,0 +1,104 @@
+﻿<div class="box">
+    <header>        
+        <h5>Dictamenes Institucionales</h5>        
+    </header>
+    <div class="row">
+        <br />
+    </div>
+
+    <!-- Area de totales de dictamenes y montos totales solicitados y rendidos-->
+    <div class="row">             
+        <div class="col-lg-12">
+            <div class="col-lg-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-clipboard fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div><h1>25</h1></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>Dictamenes Institucionales</div>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="panel-footer">
+                            <span class="pull-left">Ver Detalles...</span>
+                            <span class="pull-right">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>            
+            <div class="col-lg-6">
+                <div class="row">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-lg-5">Total Solicitado:</label>
+                            <div class="col-lg-7">
+                                <input type="text" ng-model="totalSolict" placeholder="$1.150.222" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-5">Total Rendido:</label>
+                            <div class="col-lg-7">
+                                <input type="text" ng-model="totalRendido" placeholder="$150.000" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-5">Saldo Total:</label>
+                            <div class="col-lg-7">
+                                <input type="text" ng-model="saldo" placeholder="$1.000.222" class="form-control" readonly>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-lg-12">            
+            <div class="col-lg-6">
+                <div google-chart chart="chart" style="border:1px inset black; padding:0; width:200px">
+                </div>
+            </div>
+        </div>-->                    
+    </div>
+    <!-- End - Area de totales de dictamenes y montos totales solicitados y rendidos-->
+    
+    <!-- Area de la Tabla de Ultimos Dictamenes-->
+    <div class="row center-block">        
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">Uiltimos Dictamenes Agregados</div>
+                <div class="panel-body">
+                    <table ng-table class="table ng-table-responsive">
+                        <tr ng-repeat="dictamen in dictamenesInst">
+                            <td data-title="'Dictamen'">
+                                {{dictamen.dictamen}}
+                            </td>
+                            <td data-title="'Fecha'">
+                                {{dictamen.fecha}}
+                            </td>
+                            <!--<td data-title="'Codigo de Plan de Mejora'">
+                                {{dictamen.codPlan}}
+                            </td>-->
+                            <td data-title="'Monto Aprobado'">
+                                {{dictamen.montoAprobado}}
+                            </td>
+                            <td>
+                                <button class="btn btn-info btn-line">Ver detalles</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <!-- END - Area de la Tabla de Ultimos Dictamenes -->
+</div>
+
+ 

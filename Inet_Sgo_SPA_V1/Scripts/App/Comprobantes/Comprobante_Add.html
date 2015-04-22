@@ -1,0 +1,20 @@
+﻿<div class="modal-header">
+    <h4 class="modal-title">Nuevo Comprobante</h4>
+</div>
+<div class="modal-body">
+    <form name="formAlta" novalidate>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Descripcion del Comprobante</label>
+                    <input type="text" name="descripcion" ng-model="comprobante.Descripcion" class="form-control" required />
+                </div>                
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="altaComprobante(comprobante)">Guardar</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancelar</button>
+</div>
+
